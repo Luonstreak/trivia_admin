@@ -15,6 +15,12 @@ class Control extends Component {
         const ref = firebase.database().ref('socket')
         var order;
         switch (type) {
+            case 'count_up':
+                ref.push({
+                    order: 'count_up',
+                    sender: 'admin'
+                });
+                break;
             case 'init':
                 ref.push({
                     order: 'game_init',
