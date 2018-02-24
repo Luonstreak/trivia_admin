@@ -5,6 +5,11 @@ import { Button } from 'react-native-elements';
 import firebase from 'firebase';
 
 class Control extends Component {
+    constructor(props) {
+        super(props);
+        this.state = { count: 0 }
+    }
+    
 
     sendOrder = (type) => {
         const ref = firebase.database().ref('socket')
@@ -36,6 +41,11 @@ class Control extends Component {
     render() {
         return (
             <View style={styles.container}>
+                <Button
+                    buttonStyle={{ marginBottom: 20, width: 200 }}
+                    title={`INCREASE COUNT - ${this.state.count}`}
+                    onPress={() => this.sendOrder('count_up')}
+                />
                 <Button
                     buttonStyle={{ marginBottom: 20, width: 200 }}
                     title="START GAME"
