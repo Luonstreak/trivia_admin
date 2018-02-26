@@ -69,6 +69,12 @@ class Control extends Component {
 					sender: 'admin'
 				});
 				break;
+			case 'calculate':
+				ref.push({
+					order: 'earnings',
+					sender: 'admin'
+				});
+				break;
 			default:
 				break;
 			}
@@ -77,6 +83,18 @@ class Control extends Component {
 	render() {
 		return (
 			<View style={styles.container}>
+				<LinearGradient
+					start={{ x: 0.0, y: 0.5 }} 
+					end={{ x: 1.0, y: 0.5 }} 
+					colors={['#84fab0','#8fd3f4']} 
+					style={[styles.linearGradient, { marginBottom: 40 }]}
+				>
+					<Button
+						buttonStyle={styles.buttonText}
+						title='CALCULATE EARNINGS'
+						onPress={() => this.sendOrder('calculate')}
+					/>
+				</LinearGradient>
 				<LinearGradient
 					start={{ x: 0.0, y: 0.5 }} 
 					end={{ x: 1.0, y: 0.5 }} 
